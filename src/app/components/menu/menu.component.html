@@ -1,0 +1,38 @@
+    <!-- Menu Section -->
+    <section class="page-section bg-dark-alt" id="menu">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase text-white">Our Menu</h2>
+                <h3 class="section-subheading text-gold">Exquisite Flavors for Every Palate</h3>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <div class="btn-group" role="group" aria-label="Menu Filters">
+                        <button type="button" class="btn btn-filter" [class.active]="currentFilter === 'all'" (click)="setFilter('all')">All</button>
+                        <button type="button" class="btn btn-filter" [class.active]="currentFilter === 'starters'" (click)="setFilter('starters')">Starters</button>
+                        <button type="button" class="btn btn-filter" [class.active]="currentFilter === 'mains'" (click)="setFilter('mains')">Mains</button>
+                        <button type="button" class="btn btn-filter" [class.active]="currentFilter === 'desserts'" (click)="setFilter('desserts')">Desserts</button>
+                        <button type="button" class="btn btn-filter" [class.active]="currentFilter === 'drinks'" (click)="setFilter('drinks')">Drinks</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="menu-container">
+                <ng-container *ngFor="let item of menuItems">
+                    <div class="col-lg-4 col-md-6 mb-5 menu-item" *ngIf="currentFilter === 'all' || currentFilter === item.category">
+                        <div class="card h-100 menu-card glass-card border-0" data-aos="fade-up" [attr.data-aos-delay]="item.delay">
+                            <div class="card-img-wrapper">
+                                <img class="card-img-top" [src]="item.img" [alt]="item.name" onerror="this.src='https://placehold.co/400x300/1a1a1a/d4af37?text=Delicious+Dish'">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.name}}</h4>
+                                <p class="card-text">{{item.desc}}</p>
+                                <div class="price">${{item.price}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </section>

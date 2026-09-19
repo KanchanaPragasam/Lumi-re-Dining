@@ -1,0 +1,15 @@
+.navbar-brand {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    background-color: transparent;
+    color: #e2c262 !important;
+    transform: scale(1.05);
+}
+
+.navbar-brand:hover .text-gold {
+    color: #ffffff !important;
+}
